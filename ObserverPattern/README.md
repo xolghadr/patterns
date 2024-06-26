@@ -110,9 +110,6 @@ Here's how the project components are put together and executed in Program.cs:
 
 ```csharp
 
-// See https://aka.ms/new-console-template for more information
-using ObserverPattern.Concretes;
-
 var user = new user("sadegh@example.com", "XoL");
 
 user.EmailChanged.Attach(new NewsSubscriptionEmailObserver());
