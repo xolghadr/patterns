@@ -9,27 +9,24 @@ The Observer pattern solves this problem by introducing an intermediary, the **O
 ```mermaid
 classDiagram
     class Subject {
-        -state: string
-        +attach(Observer): void
-        +detach(Observer): void
+        -observers: List~IObserver~
+        +attach(IObserver): void
+        +detach(IObserver): void
         +notify(): void
-        +getState(): string
     }
 
     class IObserver {
-        +update(): void
+        +update(Subject): void
     }
 
     class ConcreteSubject {
-        -state: string
-        -observers: List~Observer~
-        +attach(Observer): void
-        +detach(Observer): void
+        -observers: List~IObserver~
+        +attach(IObserver): void
+        +detach(IObserver): void
         +notify(): void
     }
 
     class ConcreteObserver {
-        -subject: ConcreteSubject
         +update(): void
     }
 
